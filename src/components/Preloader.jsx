@@ -8,20 +8,27 @@ export default function Preloader({ onFinish }) {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
+    // Guaranteed fail-safe: never trap user on loading screen
+    const failSafeTimer = setTimeout(() => {
+      if (onFinish) onFinish();
+    }, 2400);
+
     let current = 0;
     const interval = setInterval(() => {
-      // Extended realistic ~3.5s loading sequence
-      const step = Math.random() > 0.4 ? 1 : 2;
+      const step = Math.floor(Math.random() * 4) + 3;
       current += step;
       if (current >= 100) {
         current = 100;
         clearInterval(interval);
       }
       setProgress(current);
-    }, 38);
+    }, 28);
 
-    return () => clearInterval(interval);
-  }, []);
+    return () => {
+      clearInterval(interval);
+      clearTimeout(failSafeTimer);
+    };
+  }, [onFinish]);
 
   useEffect(() => {
     if (progress === 100) {
@@ -31,17 +38,21 @@ export default function Preloader({ onFinish }) {
         },
       });
 
-      tl.to(barRef.current, {
-        width: '100%',
-        duration: 0.3,
-        ease: 'power2.out',
-      })
-        .to(containerRef.current, {
-          yPercent: -100,
-          duration: 1.1,
-          ease: 'power4.inOut',
-          delay: 0.4,
+      if (barRef.current) {
+        tl.to(barRef.current, {
+          width: '100%',
+          duration: 0.25,
+          ease: 'power2.out',
         });
+      }
+      if (containerRef.current) {
+        tl.to(containerRef.current, {
+          yPercent: -100,
+          duration: 0.9,
+          ease: 'power4.inOut',
+          delay: 0.15,
+        });
+      }
     }
   }, [progress, onFinish]);
 
