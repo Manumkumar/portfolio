@@ -2,99 +2,148 @@ import React from 'react';
 import { Briefcase, GraduationCap, CheckCircle2 } from 'lucide-react';
 import AboutBackgroundCanvas from '../components/AboutBackgroundCanvas';
 
-/* Official High-Fidelity Scalable SVG Emblem for Mahatma Gandhi University (MG University) */
-const MGUniversityEmblem = ({ size = 76 }) => (
+/* Official High-Fidelity Scalable SVG Emblem for Mahatma Gandhi University Kottayam (Exact Match to Uploaded Official Crest) */
+const MGUniversityEmblem = ({ size = 116 }) => (
   <svg width={size} height={size} viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
     <defs>
-      <path id="mgTopArch" d="M 14,48 A 46,46 0 0,1 106,48" />
-      <path id="mgBottomArch" d="M 22,96 A 42,42 0 0,0 98,96" />
+      {/* Precision Arches for Circular Ring Title */}
+      <path id="mgTopArchExact" d="M 21,50 A 39,39 0 0,1 99,50" />
+      <path id="mgBottomArchExact" d="M 26,50 A 34,34 0 0,0 94,50" />
     </defs>
-    {/* Outer Seal Rings */}
-    <circle cx="60" cy="60" r="56" stroke="#D4AF37" strokeWidth="2.2" fill="rgba(212, 175, 55, 0.07)" />
-    <circle cx="60" cy="60" r="49" stroke="#D4AF37" strokeWidth="1" strokeDasharray="3 2" />
-    {/* Arched University Title */}
-    <text fill="#D4AF37" fontSize="7.4" fontWeight="800" letterSpacing="0.06em" fontFamily="sans-serif">
-      <textPath href="#mgTopArch" startOffset="50%" textAnchor="middle">MAHATMA GANDHI UNIVERSITY</textPath>
+
+    {/* CIRCULAR SEAL RING */}
+    <circle cx="60" cy="50" r="44" stroke="#D4AF37" strokeWidth="2.4" fill="rgba(212, 175, 55, 0.08)" />
+    <circle cx="60" cy="50" r="33" stroke="#D4AF37" strokeWidth="1.8" />
+
+    {/* ARCHED INSCRIPTION: MAHATMA GANDHI UNIVERSITY • KOTTAYAM • */}
+    <text fill="#D4AF37" fontSize="6.4" fontWeight="800" letterSpacing="0.05em" fontFamily="-apple-system, sans-serif">
+      <textPath href="#mgTopArchExact" startOffset="50%" textAnchor="middle">MAHATMA GANDHI UNIVERSITY</textPath>
     </text>
-    {/* Center Academic Shield */}
-    <path
-      d="M 38 38 H 82 V 64 C 82 78 60 90 60 90 C 60 90 38 78 38 64 V 38 Z"
-      fill="rgba(212, 175, 55, 0.16)"
-      stroke="#D4AF37"
-      strokeWidth="2"
-    />
-    {/* Open Book of Knowledge */}
-    <path
-      d="M 44 58 C 50 55 56 56 59 60 V 46 C 56 43 50 44 44 47 V 58 Z M 76 58 C 70 55 64 56 61 60 V 46 C 64 43 70 44 76 47 V 58 Z"
-      fill="#D4AF37"
-    />
-    {/* Lamp Flame of Learning */}
-    <path d="M 60 30 C 60 30 55 37 57.5 41 C 59.5 44 60.5 44 62.5 41 C 65 37 60 30 60 30 Z" fill="#F3E5AB" />
-    {/* Sanskrit Motto: Vidyayamritamashnute */}
-    <text fill="#F3E5AB" fontSize="7.2" fontWeight="700" fontFamily="sans-serif">
-      <textPath href="#mgBottomArch" startOffset="50%" textAnchor="middle">विद्ययामृतमश्नुते</textPath>
+    <text fill="#D4AF37" fontSize="6.2" fontWeight="800" letterSpacing="0.08em" fontFamily="-apple-system, sans-serif">
+      <textPath href="#mgBottomArchExact" startOffset="50%" textAnchor="middle">• KOTTAYAM •</textPath>
     </text>
+
+    {/* CENTER: 8-SPOKED OCTAGON / CHARKHA WHEEL OF PROGRESS */}
+    <g transform="translate(60, 50)">
+      {/* Outer Octagon Frame */}
+      <polygon
+        points="0,-26 18,-18 26,0 18,18 0,26 -18,18 -26,0 -18,-18"
+        stroke="#D4AF37"
+        strokeWidth="2"
+        fill="rgba(212, 175, 55, 0.12)"
+      />
+      {/* Radiating Wheel Spokes */}
+      <line x1="0" y1="-26" x2="0" y2="26" stroke="#D4AF37" strokeWidth="1.8" />
+      <line x1="-26" y1="0" x2="26" y2="0" stroke="#D4AF37" strokeWidth="1.8" />
+      <line x1="-18" y1="-18" x2="18" y2="18" stroke="#D4AF37" strokeWidth="1.8" />
+      <line x1="18" y1="-18" x2="-18" y2="18" stroke="#D4AF37" strokeWidth="1.8" />
+
+      {/* CENTER OIL LAMP (Diya / Nilavilakku Bowl & Flame) */}
+      <path d="M -6 1 C -6 4 6 4 6 1 Z" fill="#D4AF37" stroke="#F3E5AB" strokeWidth="1" />
+      <path d="M 0 -7 C -3 -3 -3 0 0 1 C 3 0 3 -3 0 -7 Z" fill="#F3E5AB" />
+    </g>
+
+    {/* BOTTOM PEDESTAL SCRIPTURE BOOK WITH SANSKRIT MOTTO */}
+    <g transform="translate(60, 103)">
+      {/* 3D Book Pedestal Frame */}
+      <path
+        d="M -42 -9 L 42 -9 L 45 4 L -45 4 Z"
+        fill="rgba(212, 175, 55, 0.16)"
+        stroke="#D4AF37"
+        strokeWidth="1.8"
+        strokeLinejoin="round"
+      />
+      {/* Book Bottom Pages Layer */}
+      <path d="M -45 4 L 45 4 L 44 8 L -44 8 Z" fill="#D4AF37" />
+
+      {/* Inscribed Devanagari Sanskrit Motto across Book Face: विद्यया अमृतमश्नुते */}
+      <text
+        x="0"
+        y="-1"
+        fill="#F3E5AB"
+        fontSize="7.2"
+        fontWeight="800"
+        textAnchor="middle"
+        fontFamily="sans-serif"
+      >
+        विद्यया अमृतमश्नुते
+      </text>
+    </g>
   </svg>
 );
 
-/* Official High-Fidelity Scalable SVG Emblem for University of Kerala (Exact Match to Official Crest) */
-const KeralaUniversityEmblem = ({ size = 76 }) => (
+/* Official High-Fidelity Scalable SVG Emblem for University of Kerala (Exact Match to Uploaded Official Crest) */
+const KeralaUniversityEmblem = ({ size = 116 }) => (
   <svg width={size} height={size} viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
     <defs>
-      <path id="keralaTopArch" d="M 12,46 A 48,48 0 0,1 108,46" />
-      <path id="keralaBottomArch" d="M 18,94 A 44,44 0 0,0 102,94" />
+      {/* Precision Arches matching exact reference curvature */}
+      <path id="keralaTopArchExact" d="M 14,40 A 48,48 0 0,1 106,40" />
+      <path id="keralaBottomArchExact" d="M 18,93 A 44,44 0 0,0 102,93" />
     </defs>
-    {/* Subtle Gold Aura Ring */}
-    <circle cx="60" cy="60" r="56" stroke="#D4AF37" strokeWidth="1.8" fill="rgba(212, 175, 55, 0.06)" />
 
-    {/* Top Arched Title: UNIVERSITY OF KERALA */}
-    <text fill="#D4AF37" fontSize="8" fontWeight="800" letterSpacing="0.08em" fontFamily="sans-serif">
-      <textPath href="#keralaTopArch" startOffset="50%" textAnchor="middle">UNIVERSITY OF KERALA</textPath>
+    {/* Top Arched Inscription: UNIVERSITY OF KERALA */}
+    <text fill="#D4AF37" fontSize="7.8" fontWeight="800" letterSpacing="0.07em" fontFamily="-apple-system, sans-serif">
+      <textPath href="#keralaTopArchExact" startOffset="50%" textAnchor="middle">UNIVERSITY OF KERALA</textPath>
     </text>
 
-    {/* Blooming Lotus Flower Silhouette (Outer & Base Petals) */}
+    {/* BLOOMING LOTUS FLOWER SILHOUETTE (Exact Crown Profile from Uploaded Logo) */}
+    {/* Central Sharp Top Peak & Flared Outer Wing Petals */}
     <path
-      d="M 60 22 C 48 30 28 42 22 62 C 28 78 44 86 60 86 C 76 86 92 78 98 62 C 92 42 72 30 60 22 Z"
+      d="M 60 26 L 46 38 C 30 40 18 50 16 64 C 20 78 38 86 60 86 C 82 86 100 78 104 64 C 102 50 90 40 74 38 L 60 26 Z"
       fill="rgba(212, 175, 55, 0.12)"
       stroke="#D4AF37"
       strokeWidth="2.2"
       strokeLinejoin="round"
     />
-    {/* Layered Lotus Petals at Bottom Base */}
+    {/* Inner Layered Cup Petals */}
     <path
-      d="M 28 68 C 36 78 48 84 60 84 C 72 84 84 78 92 68 M 34 76 C 42 84 50 88 60 88 C 70 88 78 84 86 76"
+      d="M 24 58 C 32 68 44 74 60 74 C 76 74 88 68 96 58"
       stroke="#D4AF37"
       strokeWidth="1.6"
       strokeLinecap="round"
     />
+    {/* 7 Layered Lotus Base Petals Fan (Symmetrical Bottom Fan) */}
+    <path
+      d="M 22 66 C 26 72 32 76 38 78 M 32 74 C 38 80 46 84 54 85 M 60 86 L 60 76 M 66 85 C 74 84 82 80 88 74 M 82 78 C 88 76 94 72 98 66"
+      stroke="#D4AF37"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+    />
 
-    {/* Top Center: Sacred Conch Shell (Shankha) */}
+    {/* TOP CENTER: SACRED SHANKHA CONCH SHELL (Valampiri Shankha with Spire) */}
     <g transform="translate(60, 42)">
-      {/* Conch Spire & Spiral Body */}
+      {/* Decorative Top Spire Flame */}
+      <path d="M 0 -11 L -2.5 -7 L 0 -8.5 L 2.5 -7 Z" fill="#F3E5AB" />
+      {/* Coiled Shankha Body */}
       <path
-        d="M 0 -11 C -4 -7 -6 -2 -5 4 C -5 9 -2 13 0 15 C 2 13 5 9 5 4 C 6 -2 4 -7 0 -11 Z"
-        fill="#F3E5AB"
+        d="M 0 -8 C -5 -4 -7 1 -6 6 C -5 11 -2 15 0 17 C 2 15 5 11 6 6 C 7 1 5 -4 0 -8 Z"
+        fill="rgba(243, 229, 171, 0.28)"
         stroke="#D4AF37"
-        strokeWidth="1.5"
+        strokeWidth="1.6"
       />
-      {/* Conch Flared Opening & Ornaments */}
-      <path d="M -5 -2 C -8 -2 -9 1 -7 3 M 5 -2 C 8 -2 9 1 7 3" stroke="#D4AF37" strokeWidth="1.4" strokeLinecap="round" />
-      <circle cx="0" cy="2" r="1.8" fill="#D4AF37" />
+      {/* Conch Opening & Internal Coils */}
+      <path d="M -3 -1 C -5 2 -4 6 0 8 C 4 6 5 2 3 -1" stroke="#F3E5AB" strokeWidth="1.2" fill="none" />
     </g>
 
-    {/* Center Below Conch: Palm Leaf Manuscript on Crossed Stand (Thaliyola & Peedham) */}
-    <g transform="translate(60, 68)">
-      {/* Crossed Wooden Book Stand (Peedham X-Stand) */}
-      <path d="M -12 8 L -5 -3 M 12 8 L 5 -3 M -8 8 L 8 -3 M 8 8 L -8 -3" stroke="#D4AF37" strokeWidth="2.2" strokeLinecap="round" />
-      {/* Palm Leaf Manuscript Bundle (Thaliyola Book) */}
-      <rect x="-18" y="-7" width="36" height="6" rx="2" fill="#D4AF37" stroke="#F3E5AB" strokeWidth="1.2" />
-      {/* Hanging Manuscript Ribbon */}
-      <path d="M 2 0 L 5 9 L 0 7 L -5 9 L -2 0" fill="#F3E5AB" />
+    {/* CENTER: PALM LEAF MANUSCRIPT ON CROSSED STAND (Thaliyola Book & Peedham) */}
+    <g transform="translate(60, 64)">
+      {/* Crossed Wooden X-Stand Legs (Peedham) */}
+      <path d="M -13 11 L -5 -1 M 13 11 L 5 -1 M -8 11 L 8 -1 M 8 11 L -8 -1" stroke="#D4AF37" strokeWidth="2.3" strokeLinecap="round" />
+      {/* 3D Palm Leaf Manuscript Bundle (Thaliyola) */}
+      <path
+        d="M -22 -4 L 20 -6 L 22 0 L -20 2 Z"
+        fill="#D4AF37"
+        stroke="#F3E5AB"
+        strokeWidth="1.2"
+        strokeLinejoin="round"
+      />
+      {/* Hanging Book Ribbon / Bookmark */}
+      <path d="M 1 1 L 4 11 L 0 9 L -4 11 L -1 1 Z" fill="#F3E5AB" />
     </g>
 
-    {/* Bottom Sanskrit Motto Arch: कर्मणि व्यज्यते प्रज्ञा (Karmani Vyajyate Prajna) */}
-    <text fill="#F3E5AB" fontSize="7.8" fontWeight="700" fontFamily="sans-serif">
-      <textPath href="#keralaBottomArch" startOffset="50%" textAnchor="middle">कर्मणि व्यज्यते प्रज्ञा</textPath>
+    {/* BOTTOM SANSKRIT MOTTO ARCH: कर्मणि व्यज्यते प्रज्ञा (Karmani Vyajyate Prajna) */}
+    <text fill="#F3E5AB" fontSize="7.6" fontWeight="700" fontFamily="sans-serif">
+      <textPath href="#keralaBottomArchExact" startOffset="50%" textAnchor="middle">कर्मणि व्यज्यते प्रज्ञा</textPath>
     </text>
   </svg>
 );
@@ -411,18 +460,20 @@ export default function About() {
                     >
                       <div
                         style={{
-                          width: '76px',
-                          height: '76px',
-                          borderRadius: '18px',
-                          background: 'rgba(212, 175, 55, 0.12)',
-                          border: '1px solid rgba(212, 175, 55, 0.35)',
+                          width: '140px',
+                          height: '140px',
+                          borderRadius: '24px',
+                          background: 'radial-gradient(circle, rgba(212, 175, 55, 0.22) 0%, rgba(212, 175, 55, 0.06) 100%)',
+                          border: '1.5px solid rgba(212, 175, 55, 0.45)',
+                          boxShadow: '0 12px 36px rgba(212, 175, 55, 0.22)',
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
                           flexShrink: 0,
+                          padding: '8px',
                         }}
                       >
-                        <Logo size={56} />
+                        <Logo size={116} />
                       </div>
 
                       <div>
