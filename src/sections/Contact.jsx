@@ -199,6 +199,110 @@ export default function Contact() {
                 </div>
               </div>
             </div>
+
+            {/* Themed Social Media Connect Cards */}
+            <div style={{ marginTop: '12px' }}>
+              <div
+                style={{
+                  fontSize: '0.78rem',
+                  fontWeight: 700,
+                  letterSpacing: '0.12em',
+                  color: '#D4AF37',
+                  textTransform: 'uppercase',
+                  marginBottom: '14px',
+                }}
+              >
+                // SOCIAL PROFILES
+              </div>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '14px' }}>
+                <a
+                  href="https://github.com/Manumkumar"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="glass-card"
+                  style={{
+                    padding: '12px 22px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '12px',
+                    textDecoration: 'none',
+                    color: '#F4F4F6',
+                    fontSize: '0.9rem',
+                    fontWeight: 600,
+                    transition: 'all 0.3s ease',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = '#D4AF37';
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.08)';
+                    e.currentTarget.style.transform = 'translateY(0)';
+                  }}
+                >
+                  <Github size={19} color="#D4AF37" />
+                  <span>GitHub</span>
+                </a>
+
+                <a
+                  href="https://linkedin.com/in/manumkumar"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="glass-card"
+                  style={{
+                    padding: '12px 22px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '12px',
+                    textDecoration: 'none',
+                    color: '#F4F4F6',
+                    fontSize: '0.9rem',
+                    fontWeight: 600,
+                    transition: 'all 0.3s ease',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = '#D4AF37';
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.08)';
+                    e.currentTarget.style.transform = 'translateY(0)';
+                  }}
+                >
+                  <Linkedin size={19} color="#D4AF37" />
+                  <span>LinkedIn</span>
+                </a>
+
+                <a
+                  href="https://twitter.com/manumkumar"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="glass-card"
+                  style={{
+                    padding: '12px 22px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '12px',
+                    textDecoration: 'none',
+                    color: '#F4F4F6',
+                    fontSize: '0.9rem',
+                    fontWeight: 600,
+                    transition: 'all 0.3s ease',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = '#D4AF37';
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.08)';
+                    e.currentTarget.style.transform = 'translateY(0)';
+                  }}
+                >
+                  <Twitter size={19} color="#D4AF37" />
+                  <span>Twitter / X</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 
