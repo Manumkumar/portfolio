@@ -59,9 +59,14 @@ export default function App() {
 
   useEffect(() => {
     if (loadingComplete) {
-      setTimeout(() => {
-        ScrollTrigger.refresh();
+      const timer = setTimeout(() => {
+        try {
+          ScrollTrigger.refresh();
+        } catch (err) {
+          console.warn('ScrollTrigger safe refresh:', err);
+        }
       }, 150);
+      return () => clearTimeout(timer);
     }
   }, [loadingComplete]);
 

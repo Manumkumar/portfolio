@@ -14,6 +14,7 @@ export default function Projects({ onSelectProject }) {
   useEffect(() => {
     const ctx = gsap.context(() => {
       cardsRef.current.forEach((card, index) => {
+        if (!card) return;
         gsap.fromTo(
           card,
           { y: 50, opacity: 0 },

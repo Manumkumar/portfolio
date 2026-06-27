@@ -17,8 +17,9 @@ export default function About() {
 
     const ctx = gsap.context(() => {
       const getScrollAmount = () => {
-        const trackWidth = track.scrollWidth;
-        return -(trackWidth - window.innerWidth + 120);
+        if (!track) return 0;
+        const trackWidth = track.scrollWidth || 0;
+        return -(Math.max(0, trackWidth - window.innerWidth + 120));
       };
 
       const tween = gsap.to(track, {
@@ -29,7 +30,11 @@ export default function About() {
       ScrollTrigger.create({
         trigger: section,
         start: 'top top',
-        end: () => `+=${Math.max(track.scrollWidth - window.innerWidth + 140, 600)}`,
+        end: () => {
+          if (!track) return '+=' + window.innerHeight;
+          const w = track.scrollWidth || window.innerWidth;
+          return `+=${Math.max(w - window.innerWidth + 140, 600)}`;
+        },
         pin: true,
         animation: tween,
         scrub: 1,
