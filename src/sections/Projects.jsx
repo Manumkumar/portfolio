@@ -125,6 +125,8 @@ export default function Projects({ onSelectProject }) {
                   alignItems: 'center',
                   cursor: 'pointer',
                   position: 'relative',
+                  transform: 'translate3d(0, 0, 0)',
+                  willChange: 'transform, opacity',
                 }}
               >
                 {/* Image Showcase Container */}

@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { Cpu, Server, Radio, Binary } from 'lucide-react';
 import ServicesBackgroundCanvas from '../components/ServicesBackgroundCanvas';
+import InteractivePythonConsole from '../components/InteractivePythonConsole';
 
 export default function Services() {
   const cardsRef = useRef([]);
@@ -207,6 +208,11 @@ export default function Services() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Live Interactive Python AI Engineering Console */}
+        <div style={{ marginTop: '80px' }}>
+          <InteractivePythonConsole />
         </div>
       </div>
     </section>

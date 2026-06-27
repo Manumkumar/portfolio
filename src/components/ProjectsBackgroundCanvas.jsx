@@ -9,7 +9,7 @@ export default function ProjectsBackgroundCanvas() {
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     let animationFrameId;
-    let offset = 0;
+    let time = 0;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -20,7 +20,7 @@ export default function ProjectsBackgroundCanvas() {
     if (canvas.parentElement) observer.observe(canvas.parentElement);
 
     const resizeCanvas = () => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 1.25);
+      const dpr = 1; // Cap at 1 for zero-lag scroll compositing
       const width = window.innerWidth;
       const height = canvas.parentElement ? canvas.parentElement.offsetHeight : window.innerHeight;
       canvas.width = width * dpr;
@@ -37,24 +37,21 @@ export default function ProjectsBackgroundCanvas() {
       animationFrameId = requestAnimationFrame(render);
       if (!isVisibleRef.current) return;
 
-      offset += 0.4;
+      time += 0.008;
       const width = window.innerWidth;
       const height = canvas.parentElement ? canvas.parentElement.offsetHeight : window.innerHeight;
 
       ctx.clearRect(0, 0, width, height);
 
+      // Lightweight ambient architectural perspective lines (ultra low GPU overhead)
       ctx.lineWidth = 1;
-      const lines = 12; // Optimized
-      for (let i = 0; i < lines; i++) {
-        const yBase = ((i * 85 + offset) % (height + 100)) - 50;
+      const step = 140;
+      for (let y = 100; y < height; y += step) {
+        const alpha = 0.028 + Math.sin(time + y * 0.01) * 0.012;
+        ctx.strokeStyle = `rgba(212, 175, 55, ${alpha})`;
         ctx.beginPath();
-        ctx.strokeStyle = `rgba(212, 175, 55, ${0.05 + Math.sin(yBase * 0.01) * 0.035})`;
-        ctx.moveTo(0, yBase);
-
-        for (let x = 0; x <= width; x += 50) {
-          const wave = Math.sin((x + offset * 4) * 0.008 + i) * 14;
-          ctx.lineTo(x, yBase + wave);
-        }
+        ctx.moveTo(0, y);
+        ctx.lineTo(width, y);
         ctx.stroke();
       }
     };
@@ -76,7 +73,8 @@ export default function ProjectsBackgroundCanvas() {
         zIndex: 0,
         overflow: 'hidden',
         pointerEvents: 'none',
-        transform: 'translateZ(0)',
+        transform: 'translate3d(0, 0, 0)',
+        contain: 'strict',
       }}
     >
       <canvas
@@ -91,7 +89,7 @@ export default function ProjectsBackgroundCanvas() {
         style={{
           position: 'absolute',
           inset: 0,
-          background: 'linear-gradient(180deg, #08080C 0%, rgba(8, 8, 12, 0.82) 40%, rgba(8, 8, 12, 0.82) 60%, #08080C 100%)',
+          background: 'linear-gradient(180deg, #08080C 0%, rgba(8, 8, 12, 0.85) 50%, #08080C 100%)',
         }}
       />
     </div>
