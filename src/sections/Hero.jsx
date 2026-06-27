@@ -92,7 +92,7 @@ export default function Hero() {
             ref={titleRef}
             className="font-display"
             style={{
-              fontSize: 'clamp(3.2rem, 6.2vw, 5.4rem)',
+              fontSize: 'clamp(2.4rem, 6.2vw, 5.4rem)',
               fontWeight: 700,
               lineHeight: 1.08,
               letterSpacing: '-0.035em',

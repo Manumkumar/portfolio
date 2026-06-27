@@ -117,13 +117,8 @@ export default function Projects({ onSelectProject }) {
                 key={project.id}
                 ref={(el) => (cardsRef.current[idx] = el)}
                 onClick={() => onSelectProject && onSelectProject(project)}
-                className="glass-card"
+                className="glass-card project-case-card"
                 style={{
-                  padding: '36px',
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))',
-                  gap: '40px',
-                  alignItems: 'center',
                   cursor: 'pointer',
                   position: 'relative',
                   transform: 'translate3d(0, 0, 0)',

@@ -2,6 +2,49 @@ import React from 'react';
 import { Briefcase, GraduationCap, CheckCircle2 } from 'lucide-react';
 import AboutBackgroundCanvas from '../components/AboutBackgroundCanvas';
 
+/* Official High-Fidelity Scalable SVG Logo for RIOD LOGIC PVT LTD (Exact Match to Uploaded Company Wordmark) */
+const RIODCompanyLogo = ({ size = 116 }) => (
+  <svg width={size} height={size} viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+    {/* Subtle Outer Glow Frame */}
+    <rect x="8" y="24" width="124" height="92" rx="16" stroke="rgba(212, 175, 55, 0.25)" strokeWidth="1.2" fill="rgba(212, 175, 55, 0.04)" />
+
+    {/* BOLD STYLIZED WORDMARK: RIOD */}
+    <g transform="translate(18, 48)">
+      {/* Letter R with Iconic Top Slash Disconnection */}
+      <path
+        d="M 0 0 H 14 L 20 8 L 14 14 H 7 V 26 H 0 V 0 Z M 16 16 L 24 30 H 16 L 10 17 H 16 Z"
+        fill="#D4AF37"
+      />
+      {/* Letter I */}
+      <rect x="30" y="0" width="8" height="30" fill="#D4AF37" />
+      {/* Letter O */}
+      <path
+        d="M 54 15 C 54 6 60 0 70 0 C 80 0 86 6 86 15 C 86 24 80 30 70 30 C 60 30 54 24 54 15 Z M 62 15 C 62 20 65 23 70 23 C 75 23 78 20 78 15 C 78 10 75 7 70 7 C 65 7 62 10 62 15 Z"
+        fill="#D4AF37"
+      />
+      {/* Letter D */}
+      <path
+        d="M 94 0 H 108 C 117 0 122 7 122 15 C 122 23 117 30 108 30 H 94 V 0 Z M 102 7 V 23 H 107 C 111 23 114 19 114 15 C 114 11 111 7 107 7 H 102 Z"
+        fill="#D4AF37"
+      />
+    </g>
+
+    {/* SUBTITLE TAGLINE: RUGGED INTERNET OF DEVICES */}
+    <text
+      x="70"
+      y="98"
+      fill="#F3E5AB"
+      fontSize="5.2"
+      fontWeight="700"
+      letterSpacing="0.14em"
+      textAnchor="middle"
+      fontFamily="-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif"
+    >
+      RUGGED INTERNET OF DEVICES
+    </text>
+  </svg>
+);
+
 /* Official High-Fidelity Scalable SVG Emblem for Mahatma Gandhi University Kottayam (Exact Match to Uploaded Official Crest) */
 const MGUniversityEmblem = ({ size = 116 }) => (
   <svg width={size} height={size} viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -155,6 +198,7 @@ export default function About() {
       company: 'RIOD LOGIC PVT LTD',
       period: '03/2025 – Present',
       badge: 'Current Position',
+      LogoComponent: RIODCompanyLogo,
       description:
         'Specializing in engineering resilient backend architectures, high-throughput REST APIs, and industrial data integrations. Architected scalable database pipelines and ensured real-time telemetry security across mission-critical edge deployments.',
       deliverables: [
@@ -169,6 +213,7 @@ export default function About() {
       company: 'RIOD LOGIC PVT LTD',
       period: 'Foundational Engineering Experience',
       badge: 'Industrial IoT',
+      LogoComponent: RIODCompanyLogo,
       description:
         'Engineered hardware-level diagnostics, electronics assembly workflows, and edge device verification protocols. Streamlined production testing for industrial IoT gateways and supported predictive analytics deployments.',
       deliverables: [
@@ -290,114 +335,113 @@ export default function About() {
             </h3>
           </div>
 
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(440px, 1fr))',
-              gap: '30px',
-            }}
-          >
-            {experiences.map((exp, idx) => (
-              <div
-                key={idx}
-                className="glass-card"
-                style={{
-                  padding: '38px 40px',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  borderRadius: '24px',
-                  border: '1px solid rgba(212, 175, 55, 0.18)',
-                }}
-              >
-                <div>
-                  <div
-                    style={{
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      alignItems: 'flex-start',
-                      marginBottom: '20px',
-                    }}
-                  >
-                    <div>
-                      <span
-                        style={{
-                          fontSize: '0.78rem',
-                          fontWeight: 700,
-                          letterSpacing: '0.12em',
-                          color: '#D4AF37',
-                          textTransform: 'uppercase',
-                        }}
-                      >
-                        {exp.company}
-                      </span>
-                      <h4
-                        className="font-display"
-                        style={{
-                          fontSize: '1.45rem',
-                          fontWeight: 800,
-                          color: '#F4F4F6',
-                          marginTop: '6px',
-                        }}
-                      >
-                        {exp.role}
-                      </h4>
-                    </div>
-
-                    <div
-                      style={{
-                        padding: '6px 14px',
-                        borderRadius: '999px',
-                        background: 'rgba(212, 175, 55, 0.12)',
-                        border: '1px solid rgba(212, 175, 55, 0.28)',
-                        color: '#D4AF37',
-                        fontSize: '0.78rem',
-                        fontWeight: 700,
-                      }}
-                    >
-                      {exp.period}
-                    </div>
-                  </div>
-
-                  <p
-                    style={{
-                      color: '#9E9EB2',
-                      fontSize: '0.96rem',
-                      lineHeight: 1.7,
-                      marginBottom: '26px',
-                    }}
-                  >
-                    {exp.description}
-                  </p>
-                </div>
-
+          <div className="about-grid">
+            {experiences.map((exp, idx) => {
+              const Logo = exp.LogoComponent;
+              return (
                 <div
+                  key={idx}
+                  className="glass-card"
                   style={{
-                    borderTop: '1px solid rgba(255, 255, 255, 0.06)',
-                    paddingTop: '20px',
-                    display: 'grid',
-                    gridTemplateColumns: '1fr 1fr',
-                    gap: '12px',
+                    padding: '36px clamp(20px, 4vw, 40px)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    borderRadius: '24px',
+                    border: '1px solid rgba(212, 175, 55, 0.18)',
                   }}
                 >
-                  {exp.deliverables.map((item, dIdx) => (
-                    <div
-                      key={dIdx}
+                  <div>
+                    {/* Top Header with Company Logo */}
+                    <div className="about-card-header">
+                      {Logo && (
+                        <div className="about-logo-box">
+                          <Logo size={116} />
+                        </div>
+                      )}
+
+                      <div>
+                        <span
+                          style={{
+                            fontSize: '0.78rem',
+                            fontWeight: 700,
+                            letterSpacing: '0.12em',
+                            color: '#D4AF37',
+                            textTransform: 'uppercase',
+                          }}
+                        >
+                          {exp.company}
+                        </span>
+                        <h4
+                          className="font-display"
+                          style={{
+                            fontSize: '1.45rem',
+                            fontWeight: 800,
+                            color: '#F4F4F6',
+                            marginTop: '6px',
+                          }}
+                        >
+                          {exp.role}
+                        </h4>
+                        <div
+                          style={{
+                            display: 'inline-block',
+                            marginTop: '10px',
+                            padding: '5px 14px',
+                            borderRadius: '999px',
+                            background: 'rgba(212, 175, 55, 0.12)',
+                            border: '1px solid rgba(212, 175, 55, 0.28)',
+                            color: '#D4AF37',
+                            fontSize: '0.78rem',
+                            fontWeight: 700,
+                          }}
+                        >
+                          {exp.period}
+                        </div>
+                      </div>
+                    </div>
+
+                    <p
                       style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '8px',
-                        fontSize: '0.84rem',
-                        color: '#D8D8E6',
+                        color: '#9E9EB2',
+                        fontSize: '0.96rem',
+                        lineHeight: 1.7,
+                        marginBottom: '26px',
                       }}
                     >
-                      <CheckCircle2 size={16} color="#D4AF37" style={{ flexShrink: 0 }} />
-                      <span>{item}</span>
-                    </div>
-                  ))}
+                      {exp.description}
+                    </p>
+                  </div>
+
+                  <div
+                    style={{
+                      borderTop: '1px solid rgba(255, 255, 255, 0.06)',
+                      paddingTop: '20px',
+                      display: 'grid',
+                      gridTemplateColumns: '1fr 1fr',
+                      gap: '12px',
+                    }}
+                  >
+                    {exp.deliverables.map((item, dIdx) => (
+                      <div
+                        key={dIdx}
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '8px',
+                          fontSize: '0.84rem',
+                          color: '#D8D8E6',
+                          fontWeight: 500,
+                        }}
+                      >
+                        <CheckCircle2 size={15} color="#D4AF37" style={{ flexShrink: 0 }} />
+                        <span>{item}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 
@@ -425,13 +469,7 @@ export default function About() {
             </h3>
           </div>
 
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(480px, 1fr))',
-              gap: '32px',
-            }}
-          >
+          <div className="about-grid">
             {educations.map((edu, idx) => {
               const Logo = edu.LogoComponent;
               return (
@@ -439,7 +477,7 @@ export default function About() {
                   key={idx}
                   className="glass-card"
                   style={{
-                    padding: '42px',
+                    padding: '36px clamp(20px, 4vw, 42px)',
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'space-between',
@@ -450,29 +488,8 @@ export default function About() {
                 >
                   <div>
                     {/* Top Header with Institutional Crest Logo */}
-                    <div
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '20px',
-                        marginBottom: '26px',
-                      }}
-                    >
-                      <div
-                        style={{
-                          width: '140px',
-                          height: '140px',
-                          borderRadius: '24px',
-                          background: 'radial-gradient(circle, rgba(212, 175, 55, 0.22) 0%, rgba(212, 175, 55, 0.06) 100%)',
-                          border: '1.5px solid rgba(212, 175, 55, 0.45)',
-                          boxShadow: '0 12px 36px rgba(212, 175, 55, 0.22)',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          flexShrink: 0,
-                          padding: '8px',
-                        }}
-                      >
+                    <div className="about-card-header">
+                      <div className="about-logo-box">
                         <Logo size={116} />
                       </div>
 
