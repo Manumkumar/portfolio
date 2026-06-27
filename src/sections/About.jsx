@@ -29,7 +29,7 @@ export default function About() {
       ScrollTrigger.create({
         trigger: section,
         start: 'top top',
-        end: () => `+=${track.scrollWidth - window.innerWidth + 500}`,
+        end: () => `+=${Math.max(track.scrollWidth - window.innerWidth + 140, 600)}`,
         pin: true,
         animation: tween,
         scrub: 1,

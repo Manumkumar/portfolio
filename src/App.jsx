@@ -57,6 +57,14 @@ export default function App() {
     };
   }, []);
 
+  useEffect(() => {
+    if (loadingComplete) {
+      setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 150);
+    }
+  }, [loadingComplete]);
+
   const handleSelectProject = (project) => {
     setSelectedProject(project);
     window.location.hash = `/project/${project.id}`;
